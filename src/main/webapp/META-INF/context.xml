@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/onewordstory">
+	<Resource name= "jdbc/onewordstory" auth="Container"
+			driverClassName="com.mysql.jdbc.Driver"
+			url="jdbc:mysql://localhost:3306/onewordstory?autoReconnect=true"
+			username="onewordstory" password="PoopFart69"
+			maxActive="100" maxIdle="30" maxWait="10000"
+			logAbandoned="true" removeAbandoned="true"
+			removeAbandonedTimeout="60" type="javax.sql.DataSource" />
+	
+	<!-- <Realm className="org.apache.catalina.realm.DataSourceRealm" debug="99"
+		dataSourceName="jdbc/onewordstory" localDataSource="true"
+		userTable="adminspass" userNameCol="Username" userCredCol="Password"
+		userRoleTable="adminsrole" roleNameCol="Rolename" /> -->
+</Context>
