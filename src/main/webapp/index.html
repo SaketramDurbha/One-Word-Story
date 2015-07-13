@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script language="javascript" type="text/javascript" src="jquery/jquery.js"></script>
+  <script language="javascript" type="text/javascript" src="jquery/jqueryui.js"></script>
+  <script type="text/javascript" src='spellcheck/include.js' ></script>
+  <link rel="stylesheet" type="text/css" href="style.css"></link>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <script language="javascript" type="text/javascript" src="ui.js"></script>
+  <script language="javascript" type="text/javascript" src="words.js"></script>
+  <script language="javascript" type="text/javascript" src="grammar.js"></script>
+  <title>One Word Story</title>
+</head>
+<body>
+  <div id="everything">
+    <div id="header-top-outer">
+      <h1 id="header-logo">one word lifetime</h1>
+      <div id="header-links-center">
+        <p id="more-arrow">&#9660;</p>
+        <p id="more">more</p>
+      </div>
+      <div id="header-links-right">
+        <a href='#' class="header-link header-links-first-child">about</a>
+        <a href='#' class="header-link">rules</a>
+        <a href='#' class="header-link">books</a>
+        <a href='#' class="header-link">credits</a>
+      </div>
+    </div>
+    <div id="header-top-lower">
+      <div id="counter-div">
+        <p class="counter" id="sentences-counter">&#x25C6; words until next sentence - 5</p>
+        <p class="counter" id="paragraph-counter">&#x25C6; sentences until next paragraph - 5</p>
+        <p class="counter">&#x25C6; paragraphs until next chapter - 10</p>
+        <p class="counter">&#x25C6; chapters until book end - 34</p>
+      </div>
+      <div style="width: 70vw; text-align:center">
+        <p id="chapter">chapter 16 - the cute platypus</p>
+        <p id="theme">current theme - abandonment</p>
+      </div>
+    </div>
+    <div id="content">
+      <p class="story"></p>
+    </div>
+    <div id="fixed-footer">
+      <h1 id="add-something">add a word:</h1>
+      <form method="POST">
+        <input type="text" maxlength="10" name="word-input" id="word-input">
+      </form>
+      <div id="submit-button" onclick="addText()">
+        <p>add</p>
+      </div>
+      <h1 id="invalid" class="hidden">Invalid word. Check the rules to see why.</h1>
+      <div id="footer-links-right">
+        <p>please read the rules before posting.</p>
+        <p>your word will be shown to the public.</p>
+        <p>no going back.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
