@@ -222,9 +222,9 @@ body {
   -webkit-transition: opacity 0.25s, box-shadow 0.5s;
 }
 
-#fixed-footer:hover {
-  opacity: 1;
-  box-shadow: 0 0 10px 5px black;
+#fixed-footer:hover, #fixed-footer.hovered {
+  opacity: 1 !important;
+  box-shadow: 0 0 10px 5px black !important;
 }
 
 #fixed-footer * {

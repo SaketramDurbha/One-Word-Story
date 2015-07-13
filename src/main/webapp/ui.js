@@ -39,8 +39,9 @@ $(document).ready(function() {
   $("#fixed-footer").hover(function() {
     clearTimeout(blurring);
     $('#word-input').focus();
+    $('#fixed-footer').addClass("hovered");
   }, function() {
-    blurring = setTimeout(function() {$('#word-input').blur();}, 2000);
+    blurring = setTimeout(function() {/*$('#word-input').blur();*/$('#fixed-footer').removeClass("hovered")}, 2000);
   })
   $('#header-links-center').click(function() {
     toggleLower();

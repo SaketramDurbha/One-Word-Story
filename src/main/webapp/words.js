@@ -1,4 +1,5 @@
 var words = ["Swinging", "my", "hammock", "gracefully", "back", "and", "forth,", "the", "night", "sky", "stayed", "above", "me", "for", "the", "long", "length", "as", "I", "looked", "at", "it", "in", "silence.", "But", "for", "the", "universe,", "two", "hours", "is", "absolutely", "nothing.", "I", "was", "thinking", "purely", "about"];
+var blurring;
 var updateStory = function() {
   var tempStory = "";
   for(i = 0; i < words.length; i++) {
@@ -14,10 +15,10 @@ var addText = function() {
   if((/^[a-z]+$/i.test(word) === true) && (errorShown === false)) { // Checks if word only has letters. Thanks, stackoverflow!
     words.push(word);
     $('.story').addClass('new');
+    $('input[name=word-input]').val("");
     updateGrammar();
     setTimeout(function() {
       updateStory();
-      $('input[name=word-input]').val("");
       $('#word-input').focus();
       setTimeout(function() {
         $('.story').removeClass('new');
@@ -57,6 +58,9 @@ $(document).ready(function() {
     makeTextValid();
   })
   $('#word-input').keypress(function(event){
+    clearTimeout(blurring);
+    $('#fixed-footer').addClass("hovered");
+    blurring = setTimeout(function() {/*$('#word-input').blur();*/$('#fixed-footer').removeClass("hovered")}, 2000);
   	var keycode = (event.keyCode ? event.keyCode : event.which);
   	if(keycode == '13') {
       if(errorShown === false) {
