@@ -33,24 +33,17 @@ var wordsSince = function(words, wat) {
 }
 
 var sentencesSince = function(words, wat) {
-  var wordsSinceLastInstance = 0;
+  var sentences = 0;
   for(i = words.length - 1; i > 0; i -= 1) {
-    var str = words[i].toString();
+    var str = words[i];
+    if(searchFor(str, '.') != -1 && (searchFor(str, wat) === -1)) {
+      sentences += 1;
+    }
     if(searchFor(str, wat) != -1) {
-      return (words.length - i - 1);
       break;
     }
   }
-  if(wordsSinceLastInstance != 0) {
-    var longString = "";
-    for(i = words.length - 1; i > words.length - wordsSinceLastInstance; i -= 1) {
-      longString = longString + words[i];
-    }
-    return longString.split(".").length - 1;
-  }
-  else {
-    return -1;
-  }
+  return sentences;
 }
 
 var capitalize = function(word) {
@@ -105,6 +98,9 @@ var updateGrammar = function() {
 
 var updateCounters = function() {
   $('#sentences-counter').html("&#x25C6; words until next sentence - "+(wordsUntilPeriod - wordsSincePeriod))
+  if((wordsUntilPeriod - wordsSincePeriod) <= 0) {
+    $('#sentences-counter').html("&#x25C6; words until next sentence - 0");
+  }
 }
 
 updateCounters();
