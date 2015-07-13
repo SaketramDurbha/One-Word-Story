@@ -19,7 +19,7 @@ import me.onewordstory.util.Database;
 import me.onewordstory.websockets.WebSocketImpl;
 
 @Path("/words")
-public class AddWordService {
+public class WordService {
 	
 	@Context 
 	private HttpServletRequest req;
@@ -57,9 +57,8 @@ public class AddWordService {
 			e.printStackTrace();
 		}
 		return rows;
-		
-		
 	}
+	
 
 	
 }

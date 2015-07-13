@@ -26,14 +26,12 @@ public class WebSocketImpl {
 
 		connections.add(this);
 
-		System.out.println("WebSocket.start: got a new connection");
 	}
 
 
 	@OnClose
 	public void end() {
 		connections.remove(this);
-		System.out.println("WebSocket.end: disconnected");
 	}
 
 
@@ -47,7 +45,7 @@ public class WebSocketImpl {
 
 	@OnError
 	public void onError(Throwable t) throws Throwable {
-		System.err.println("Chat Error: " + t.toString());
+		t.printStackTrace();
 	}
 
 
