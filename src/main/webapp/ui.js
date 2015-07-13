@@ -25,5 +25,5 @@ $(document).ready(function() {
   })
   $('#header-links-center').click(function() {
     toggleLower();
-  })
-})
+  });
+});

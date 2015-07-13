@@ -31,7 +31,7 @@ public class AddWordService {
 	@POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Integer addWord(@FormParam(value = "") String word) throws IOException
+	public Integer addWord(@FormParam(value = "word") String word) throws IOException
 	{
 		Database data = Database.getInstance();
 		Connection conn = data.getConnection();

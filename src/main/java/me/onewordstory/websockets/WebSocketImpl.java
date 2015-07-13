@@ -52,7 +52,7 @@ public class WebSocketImpl {
 
 
 	public static void broadcast(String messageKey, String msg) {
-		String messageToSend = String.format("{\"messageKey\": \"%s\", \"message\":%s}", messageKey, msg);
+		String messageToSend = String.format("{\"messageKey\": \"%s\", \"message\":\"%s\"}", messageKey, msg);
 		for (WebSocketImpl client: connections) {
 			client.session.getAsyncRemote().sendText(messageToSend);
 			/*
