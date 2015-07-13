@@ -18,12 +18,10 @@ var addText = function() {
   var word = $('input[name=word-input]').val().toLowerCase();
   if((/^[a-z]+$/i.test(word) === true) && (errorShown === false)) { // Checks if word only has letters. Thanks, stackoverflow!
     disableInput();
-    words.push(word);
     $('.story').addClass('new');
     $('input[name=word-input]').val("");
     updateGrammar();
     setTimeout(function() {
-      updateStory();
       $('#word-input').focus();
       setTimeout(function() {
         $('.story').removeClass('new');
