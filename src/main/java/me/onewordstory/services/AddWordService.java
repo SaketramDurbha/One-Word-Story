@@ -16,6 +16,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import me.onewordstory.util.Database;
+import me.onewordstory.websockets.WebSocketImpl;
 
 @Path("/words")
 public class AddWordService {
@@ -38,11 +39,7 @@ public class AddWordService {
 		
 		String sql = "INSERT INTO words (word) VALUES (?);";
 		
-		if (word.equals(""))
-		{
-			
-		}
-		
+		WebSocketImpl.broadcast("newWord", word);
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, word);
