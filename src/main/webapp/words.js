@@ -17,17 +17,22 @@ var disableInput = function() {
 var addText = function() {
   var word = $('input[name=word-input]').val().toLowerCase();
   if((/^[a-z]+$/i.test(word) === true) && (errorShown === false)) { // Checks if word only has letters. Thanks, stackoverflow!
+    // words.push(word);
+    //front end testing only
     disableInput();
     $('.story').addClass('new');
     $('input[name=word-input]').val("");
     updateGrammar();
     setTimeout(function() {
+      // updateStory();
+      // front end testing only
       $('#word-input').focus();
       setTimeout(function() {
         $('.story').removeClass('new');
       }, 250);
     }, 250);
     sendWord(word);
+    // back end testing only
   }
   else {
     createError("your word has invalid characters or doesn't exist");

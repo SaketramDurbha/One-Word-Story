@@ -203,7 +203,16 @@ body {
 }
 
 .story::after {
-  content: ' _____'
+  content: ' _____';
+}
+
+.story.new-s::after {
+  content: ' _____.' !important;
+}
+
+.story.new-p::after {
+  content: '\000A \000A \00a0\00a0\00a0\00a0_____' !important;
+  white-space: pre !important;
 }
 
 #fixed-footer {
