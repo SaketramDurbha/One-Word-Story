@@ -1,8 +1,10 @@
-var wordsSincePeriod, setnencesSinceParagraph, wordsSinceChapter;
+var wordsSincePeriod, sentencesSinceParagraph, wordsSinceChapter;
 
 var wordsUntilPeriod, sentencesUntilParagraph, wordsUntilChapter;
 
 wordsUntilPeriod = 8;
+
+sentencesUntilParagraph = 3;
 
 //get these variables from the server first
 
@@ -39,7 +41,7 @@ var sentencesSince = function(words, wat) {
     if(searchFor(str, '.') != -1 && (searchFor(str, wat) === -1)) {
       sentences += 1;
     }
-    if(searchFor(str, wat) != -1) {
+    if(str.search(wat) != -1) {
       break;
     }
   }
@@ -57,7 +59,7 @@ var addPeriod = function(word)  {
 }
 
 var addParagraph = function(word) {
-  return (word + '<br><br>&#09;')
+  return ('<br><br>&nbsp;&nbsp;&nbsp;&nbsp;' + word)
 }
 
 var newSentence = function() {
@@ -76,11 +78,15 @@ var updateGrammar = function() {
   len = words.length - 1;
   words[len] = words[len].toLowerCase();
   wordsSincePeriod = wordsSince(words, '.');
+  sentencesSinceParagraph = sentencesSince(words, '<br><br>&nbsp;&nbsp;&nbsp;&nbsp;');
   if(wordsSincePeriod === 1) {
     words[len] = capitalize(words[len]);
   }
   if(wordsSincePeriod === wordsUntilPeriod) {
     newSentence();
+  }
+  if(sentencesSinceParagraph === sentencesUntilParagraph) {
+    newParagraph();
   }
   switch(words[len]) {
     case "i":
@@ -100,6 +106,10 @@ var updateCounters = function() {
   $('#sentences-counter').html("&#x25C6; words until next sentence - "+(wordsUntilPeriod - wordsSincePeriod))
   if((wordsUntilPeriod - wordsSincePeriod) <= 0) {
     $('#sentences-counter').html("&#x25C6; words until next sentence - 0");
+  }
+  $('#paragraph-counter').html("&#x25C6; sentences until next paragraph - "+(sentencesUntilParagraph - sentencesSinceParagraph))
+  if((wordsUntilPeriod - wordsSincePeriod) <= 0) {
+    $('#paragraph-counter').html("&#x25C6; sentences until next paragraph - 0");
   }
 }
 
