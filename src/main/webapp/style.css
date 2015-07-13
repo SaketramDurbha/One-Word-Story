@@ -329,3 +329,122 @@ body {
   max-width: 0px;
   opacity: 0;
 }
+
+#error-message-outer {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  opacity: 1;
+  position:fixed;
+  pointer-events: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index:19384259273945872349875928347598237;
+  transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+}
+
+#error-message-outer.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#error-message-vert-align {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  position:relative;
+}
+
+#error-message {
+  position: absolute;
+  height: 300px;
+  width: 700px;
+  border-radius: 10px;
+  background-color: #D78884;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+}
+
+#error-message-header, #error-message-buttons {
+  background-color: #1F0B0A;
+  height: 50px;
+  width: 100%;
+  line-height: 50px;
+  margin: 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+#error-message-buttons {
+  height: 75px;
+  line-height: 75px;
+  box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+}
+
+#gotit-button {
+  height: 50px;
+  width: 150px;
+  margin-top: 10px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  line-height: 50px;
+  vertical-align: middle;
+  background-color: transparent;
+  border: 2px solid #E0A6A3;
+  position:relative;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.25s;
+  -webkit-transition: background-color 0.25s;
+}
+
+#gotit-button p {
+  font-size: 40px;
+  vertical-align: center;
+  font-weight: 500;
+  display:block;
+  margin: 0;
+  color: #EBC4C2;
+}
+
+#gotit-button:hover {
+  background-color: #CC6B66;
+}
+
+#gotit-button:active {
+  background-color: white;
+}
+
+#error-header {
+  vertical-align: middle;
+  margin-left: 10px;
+  font-size: 40px;
+  font-weight: 900;
+  color: #F0D2D1;
+  margin: 0;
+  display:inline-block;
+}
+
+#error-img {
+  height: 90%;
+  width: auto;
+  margin: 0;
+  margin-left: 20px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+#error-message-text {
+  color: #A93D37;
+  font-size: 50px;
+  font-weight: 500;
+  display:block;
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+}

@@ -1,5 +1,6 @@
 var blurring;
 var lowerShown = false;
+var errorShown = false;
 var toggleLower = function() {
   if(lowerShown) {
     $('#header-top-lower').removeClass("shown");
@@ -16,6 +17,24 @@ var toggleLower = function() {
     lowerShown = true;
   }
 }
+
+var toggleError = function() {
+  if(errorShown) {
+    $('#error-message-outer').addClass("hidden");
+    setTimeout(function() {errorShown = false;}, 500);
+  }
+  else {
+    $('#error-message-outer').removeClass("hidden");
+    errorShown = true;
+  }
+}
+
+var createError = function(text) {
+  errorShown = false;
+  toggleError();
+  $('#error-message-text').html("&#x25C6; "+text);
+}
+
 $(document).ready(function() {
   $("#fixed-footer").hover(function() {
     clearTimeout(blurring);
@@ -25,5 +44,8 @@ $(document).ready(function() {
   })
   $('#header-links-center').click(function() {
     toggleLower();
+  })
+  $('#gotit-button').click(function() {
+    toggleError();
   })
 })

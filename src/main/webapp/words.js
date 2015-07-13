@@ -11,7 +11,7 @@ var updateStory = function() {
 
 var addText = function() {
   var word = $('input[name=word-input]').val().toLowerCase();
-  if(/^[a-z]+$/i.test(word)) { // Checks if word only has letters. Thanks, stackoverflow!
+  if((/^[a-z]+$/i.test(word) === true) && (errorShown === false)) { // Checks if word only has letters. Thanks, stackoverflow!
     words.push(word);
     $('.story').addClass('new');
     updateGrammar();
@@ -23,6 +23,9 @@ var addText = function() {
         $('.story').removeClass('new');
       }, 250);
     }, 250);
+  }
+  else {
+    createError("your word has invalid characters or doesn't exist");
   }
   return false;
 }
@@ -55,8 +58,13 @@ $(document).ready(function() {
   })
   $('#word-input').keypress(function(event){
   	var keycode = (event.keyCode ? event.keyCode : event.which);
-  	if(keycode == '13'){
-      addText();
+  	if(keycode == '13') {
+      if(errorShown === false) {
+        addText();
+      }
+      else {
+        toggleError();
+      }
       event.preventDefault()
   	}
   });
