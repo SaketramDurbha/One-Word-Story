@@ -87,7 +87,7 @@ public class Encryptor {
 	}
 
 	public static void main(String[] args) throws Exception {
-		String plainText = "PoopFart69";
+		String plainText = "OK, I AM VERY SORRY, YOU ALMOST HAD ME THERE :)";
 		Encryptor aes = null;
 		aes = new Encryptor();
 
