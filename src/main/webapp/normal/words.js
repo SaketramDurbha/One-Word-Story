@@ -1,37 +1,45 @@
-var words = ["<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Swinging", "my", "hammock", "gracefully", "back", "and", "forth,", "the", "night", "sky", "stayed", "above", "me", "for", "the", "long", "length", "as", "I", "looked", "at", "it", "in", "silence.", "But", "for", "the", "universe,", "two", "hours", "is", "absolutely", "nothing.", "I", "was", "thinking", "purely", "about"];
+var words = ["<span class='chapter' id='chapter"+(amtOfChapters)+"'>CHAPTER&nbsp; "+(romanize(amtOfChapters))+": The "+adjs[Math.floor(Math.random()*adjs.length)]+" "+nouns[Math.floor(Math.random()*nouns.length)]+"<br><span class='themes'>mood: "+themes[Math.floor(Math.random()*themes.length)].toLowerCase()+"</span><br><br></span>", "<br><br>&nbsp;&nbsp;&nbsp;&nbsp;The", "stars", "each", "were", "so", "big", "and", "powerful,", "but", "there", "were", "so", "many", "floating", "around", "in", "space", "that", "they", "started", "to", "seem", "not", "as", "powerful", "as", "they", "really", "are,", "their", "great,", "unbelievable", "power", "being", "toned", "down", "by", "the", "amount", "of", "them.", "<br><br>&nbsp;&nbsp;&nbsp;&nbsp;Swinging", "my", "hammock", "gracefully", "back", "and", "forth,", "the", "night", "sky", "stayed", "above", "me", "for", "the", "long", "length", "as", "I", "looked", "at", "it", "in", "silence.", "But", "for", "the", "universe,", "two", "hours", "is", "absolutely", "nothing.", "I", "was", "thinking", "purely", "about"];
 var blurring;
+var disabled = false;
 var updateStory = function() {
 	var tempStory = "";
 	for(i = 0; i < words.length; i++) {
 		tempStory = (tempStory + " " + words[i]);
 	}
 	$('.story').html(tempStory);
-	var scrollGoal = $('#everything').height();
+	var scrollGoal = $('.story').height();
 	$('#everything').animate({scrollTop: scrollGoal}, 250);
 }
 
 var disableInput = function() {
   $('#word-input').blur();
+	$('#word-input').prop("disabled", true);
+	disabled = true;
+}
+
+var enableInput = function() {
+	$('#word-input').prop("disabled", false);
+	$('#word-input').focus();
+	disabled = false;
 }
 
 var addText = function() {
   var word = $('input[name=word-input]').val().toLowerCase();
-  if((/^[a-z]+$/i.test(word) === true) && (errorShown === false)) { // Checks if word only has letters. Thanks, stackoverflow!
-    // words.push(word);
+  if((/^[a-z]+$/i.test(word) === true) && (errorShown === false) && (disabled === false)) { // Checks if word only has letters. Thanks, stackoverflow!
+    words.push(word);
     //front end testing only
-    disableInput();
     $('.story').addClass('new');
     $('input[name=word-input]').val("");
     updateGrammar();
     setTimeout(function() {
-      // updateStory();
+      updateStory();
       // front end testing only
       $('#word-input').focus();
       setTimeout(function() {
         $('.story').removeClass('new');
       }, 250);
     }, 250);
-    sendWord(word);
+    // sendWord(word);
     // back end testing only
   }
   else {

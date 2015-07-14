@@ -125,6 +125,7 @@ body {
   height: 50px;
   line-height: 50px;
   float:right;
+  margin-right: 10px;
 }
 
 #header-links-center {
@@ -206,6 +207,12 @@ body {
   content: ' _____';
 }
 
+.story.new-c::after {
+  /*content: '\000A \000A CHAPTER' !important;*/
+  content: '\000A \000A type anything for a new chapter' !important;
+  white-space: pre !important;
+}
+
 .story.new-s::after {
   content: ' _____.' !important;
 }
@@ -213,6 +220,23 @@ body {
 .story.new-p::after {
   content: '\000A \000A \00a0\00a0\00a0\00a0_____' !important;
   white-space: pre !important;
+}
+
+.chapter {
+  font-weight: 900;
+  font-size: 50px;
+  opacity: 1;
+}
+
+.chapter.hidden {
+  opacity: 0;
+}
+
+.themes {
+  font-weight: 400;
+  font-size: 25px;
+  margin: 0;
+  margin-left: 100px;
 }
 
 #fixed-footer {
