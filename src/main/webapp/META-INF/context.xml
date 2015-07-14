@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context path="/onewordstory">
-	<Resource name= "jdbc/onewordstory" auth="Container"
+	<Resource name= "jdbc/onewordstory" 
+			auth="Container"
+			factory="me.onewordstory.dbutil.EncryptedDataSourceFactory"
 			driverClassName="com.mysql.jdbc.Driver"
 			url="jdbc:mysql://localhost:3306/onewordstory?autoReconnect=true"
-			username="onewordstory" password="PoopFart69"
+			username="onewordstory" password="1bce721dbd21f9eaa79956b45838df02"
 			maxActive="100" maxIdle="30" maxWait="10000"
 			logAbandoned="true" removeAbandoned="true"
 			removeAbandonedTimeout="60" type="javax.sql.DataSource" />
