@@ -52,6 +52,13 @@
 			<version>2.0-EDR1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+			<version>8.0.23</version>
+		</dependency>
+
+
 	</dependencies>
 	<build>
 		<finalName>app</finalName>
