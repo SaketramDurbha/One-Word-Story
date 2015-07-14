@@ -26,20 +26,20 @@ var enableInput = function() {
 var addText = function() {
   var word = $('input[name=word-input]').val().toLowerCase();
   if((/^[a-z]+$/i.test(word) === true) && (errorShown === false) && (disabled === false)) { // Checks if word only has letters. Thanks, stackoverflow!
-    words.push(word);
+    // words.push(word);
     //front end testing only
     $('.story').addClass('new');
     $('input[name=word-input]').val("");
     updateGrammar();
     setTimeout(function() {
-      updateStory();
+      // updateStory();
       // front end testing only
       $('#word-input').focus();
       setTimeout(function() {
         $('.story').removeClass('new');
       }, 250);
     }, 250);
-    // sendWord(word);
+    sendWord(word);
     // back end testing only
   }
   else {
