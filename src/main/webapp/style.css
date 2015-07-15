@@ -481,3 +481,39 @@ body {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+
+
+/*STATIC PAGES*/
+
+.static-everything h1  {
+  color: #5C211E;
+  font-size: 100px;
+  width: 100vw;
+  height: 150px;
+  line-height: 100px;
+  background-color: #F5E1E0;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 900;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.static-content h2 {
+  color: #7B2C28;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  display:block;
+  position:relative;
+  text-align:center;
+}
+
+.static-content p {
+  font-size: 30px;
+  font-weight: 400;
+}

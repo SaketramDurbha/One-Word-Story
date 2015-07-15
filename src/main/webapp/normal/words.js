@@ -27,18 +27,18 @@ var addText = function() {
   var word = $('input[name=word-input]').val().toLowerCase();
   if((/^[a-z]+$/i.test(word) === true) && (errorShown === false) && (disabled === false)) { // Checks if word only has letters. Thanks, stackoverflow!
     // words.push(word);
-    //front end testing only
-    $('.story').addClass('new');
-    $('input[name=word-input]').val("");
+    // $('.story').addClass('new');
+    // $('input[name=word-input]').val("");
     updateGrammar();
-    setTimeout(function() {
+    // setTimeout(function() {
       // updateStory();
-      // front end testing only
-      $('#word-input').focus();
-      setTimeout(function() {
-        $('.story').removeClass('new');
-      }, 250);
-    }, 250);
+    //   $('#word-input').focus();
+    //   setTimeout(function() {
+    //     $('.story').removeClass('new');
+    //   }, 250);
+    // }, 250);
+		//front end testing only
+
     sendWord(word);
     // back end testing only
   }
@@ -137,10 +137,9 @@ $(document).ready(function() {
     var json = JSON.parse(event.data);
     words.push(json.message);
     $('.story').addClass('new');
-    updateGrammar();
+		$('input[name=word-input]').val("");
     setTimeout(function() {
       updateStory();
-      $('input[name=word-input]').val("");
       $('#word-input').focus();
       setTimeout(function() {
         $('.story').removeClass('new');
