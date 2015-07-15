@@ -7,8 +7,6 @@ var updateStory = function() {
 		tempStory = (tempStory + " " + words[i]);
 	}
 	$('.story').html(tempStory);
-	var scrollGoal = $('.story').height();
-	$('#everything').animate({scrollTop: scrollGoal}, 250);
 }
 
 var disableInput = function() {
@@ -28,7 +26,9 @@ var addText = function() {
   if((/^[a-z]+$/i.test(word) === true) && (errorShown === false) && (disabled === false)) { // Checks if word only has letters. Thanks, stackoverflow!
     // words.push(word);
     // $('.story').addClass('new');
-    // $('input[name=word-input]').val("");
+    $('input[name=word-input]').val("");
+		var scrollGoal = $('.story').height();
+		$('#everything').animate({scrollTop: scrollGoal}, 250);
     updateGrammar();
     // setTimeout(function() {
       // updateStory();
@@ -137,7 +137,6 @@ $(document).ready(function() {
     var json = JSON.parse(event.data);
     words.push(json.message);
     $('.story').addClass('new');
-		$('input[name=word-input]').val("");
     setTimeout(function() {
       updateStory();
       $('#word-input').focus();

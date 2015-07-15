@@ -8,11 +8,15 @@ sentencesUntilParagraph = 3;
 
 paragraphsUntilChapter = 3;
 
-var amtOfChapters = 24;
+var amtOfChapters = 1;
 
 var sentenceCreated = false;
 var paragraphCreated = false;
 var chapterCreated = false;
+
+// wordsUntilPeriod = some val that should be saved in db
+// sentencesUntilParagraph = some val that should be saved in db
+// paragraphsUntilChapter = some val that should be saved in db uncomment when the words array isn't reset when reloaded
 
 //get these variables from the server first
 
