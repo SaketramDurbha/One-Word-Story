@@ -40,11 +40,11 @@ var initCooldown = function(time) {
 	onCooldown = true;
 	var timey = time;
 	var coolInterval = function() {
-		timey -= 600;
+		timey -= 501;
 		editCooldownBar((timey/time)*200);
 	}
 	editCooldownBar(200);
-	cooldown1 = setInterval(function() {coolInterval()}, 600);
+	cooldown1 = setInterval(function() {coolInterval()}, 501);
 
 }
 

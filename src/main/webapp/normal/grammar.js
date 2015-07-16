@@ -14,6 +14,9 @@ var sentenceCreated = false;
 var paragraphCreated = false;
 var chapterCreated = false;
 
+var bookTitle = ""; // get from db
+var amtOfCovers = 5;
+
 // wordsUntilPeriod = some val that should be saved in db
 // sentencesUntilParagraph = some val that should be saved in db
 // paragraphsUntilChapter = some val that should be saved in db uncomment when the words array isn't reset when reloaded
@@ -207,6 +210,24 @@ var updateCounters = function() {
     setTimeout(function() {$('.story').removeClass('new-p');$('.story').addClass('new-c');amtOfChapters += 1;});
   }
   $('#book-counter').html("&#x25C6; chapters until the end - "+(50-amtOfChapters));
+}
+
+var updateBook = function() {
+  $("#book").css("background-image", "url('covers/cover"+(Math.floor(Math.random()*amtOfCovers) + 1)+".png')");
+  $("#book-title").html(bookTitle);
+}
+
+var generateNewBook = function() {
+  var randAdj = Math.floor(Math.random()*adjs.length);
+  var randNoun = Math.floor(Math.random()*nouns.length);
+  while(nouns[randNoun].length > 10) {
+    randNoun = Math.floor(Math.random()*nouns.length);
+  }
+  while(adjs[randAdj].length > 10) {
+    randAdjs = Math.floor(Math.random()*adjs.length);
+  }
+  bookTitle = "The "+adjs[randAdj]+" "+nouns[randNoun];
+  updateBook();
 }
 
 updateCounters();

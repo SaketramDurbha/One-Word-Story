@@ -1,5 +1,6 @@
 var blurring;
 var lowerShown = false;
+var bookShown = false;
 var errorShown = false;
 var toggleLower = function() {
   if(lowerShown) {
@@ -7,6 +8,8 @@ var toggleLower = function() {
     $('.story').removeClass("lowered");
     $('#more').html("more");
     $('#more-arrow').removeClass("up");
+    bookShown = true;
+    toggleBook();
     lowerShown = false;
   }
   else {
@@ -14,7 +17,24 @@ var toggleLower = function() {
     $('.story').addClass("lowered");
     $('#more').html("less");
     $('#more-arrow').addClass("up");
+    bookShown = true;
+    toggleBook();
     lowerShown = true;
+  }
+}
+
+var toggleBook = function() {
+  if(bookShown) {
+    $("#header-top-book").removeClass("shown");
+    $('#evn-more-arrow').removeClass("up");
+    $("#evn-more").html("show book");
+    bookShown = false;
+  }
+  else {
+    $("#header-top-book").addClass("shown");
+    $('#evn-more-arrow').addClass("up");
+    $("#evn-more").html("hide book");
+    bookShown = true;
   }
 }
 
@@ -38,6 +58,7 @@ var createError = function(text) {
 }
 
 $(document).ready(function() {
+  generateNewBook(); //TEMPORARY
   $("#fixed-footer").hover(function() {
     clearTimeout(blurring);
     $('#word-input').focus();
@@ -47,6 +68,9 @@ $(document).ready(function() {
   })
   $('#header-links-center').click(function() {
     toggleLower();
+  })
+  $("#evn-more-outer").click(function() {
+    toggleBook();
   })
   $('#gotit-button').click(function() {
     toggleError();
