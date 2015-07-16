@@ -21,10 +21,12 @@ var toggleLower = function() {
 var toggleError = function() {
   if(errorShown) {
     $('#error-message-outer').addClass("hidden");
+    $("#error-message").addClass("hidden");
     setTimeout(function() {errorShown = false;}, 500);
   }
   else {
     $('#error-message-outer').removeClass("hidden");
+    $("#error-message").removeClass("hidden");
     errorShown = true;
   }
 }

@@ -19,6 +19,11 @@
         <p id="more-arrow">&#9660;</p>
         <p id="more">more</p>
       </div>
+      <div id="cooldown-outer">
+        <div id="cooldown-inner">
+        </div>
+        <p id="cooldown-p">cooldown: done</p>
+      </div>
       <div id="header-links-right">
         <a href='about.html' target="_blank" class="header-link header-links-first-child">about</a>
         <a href='rules.html' target="_blank" class="header-link">rules</a>
@@ -40,7 +45,7 @@
     </div>
     <div id="error-message-outer" class="hidden">
       <div id="error-message-vert-align">
-        <div id="error-message">
+        <div id="error-message" class="hidden">
           <div stlye="position: relative">
             <div id="error-message-header">
               <img src="logos/error.png" id="error-img"/>
@@ -48,7 +53,7 @@
             </div>
             <p id="error-message-text">stuffy stuff</p>
             <div id="error-message-buttons">
-              <div id="gotit-button">
+              <div id="gotit-button" class="button-pretty">
                 <p>got it</p>
               </div>
             </div>
@@ -62,9 +67,9 @@
     <div id="fixed-footer">
       <h1 id="add-something">add a word:</h1>
       <form method="POST">
-        <input type="text" maxlength="10" name="word-input" id="word-input">
+        <input type="text" maxlength="10" name="word-input" placeholder="be sure to read the rules" id="word-input">
       </form>
-      <div id="submit-button" onclick="addText()">
+      <div id="submit-button" class="button-pretty" onclick="addText()">
         <p>add</p>
       </div>
       <h1 id="invalid" class="hidden">Invalid word. Check the rules to see why.</h1>
