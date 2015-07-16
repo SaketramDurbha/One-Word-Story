@@ -206,6 +206,7 @@ var updateCounters = function() {
   if(((paragraphsUntilChapter - paragraphsSinceChapter) === 1) && (sentencesUntilParagraph - sentencesSinceParagraph) === 0) {
     setTimeout(function() {$('.story').removeClass('new-p');$('.story').addClass('new-c');amtOfChapters += 1;});
   }
+  $('#book-counter').html("&#x25C6; chapters until the end - "+(50-amtOfChapters));
 }
 
 updateCounters();

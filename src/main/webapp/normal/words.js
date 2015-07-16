@@ -67,26 +67,27 @@ var addText = function() {
 		if(testForRepetition(word, 3) === false) {
 			if(onCooldown === false) {
 
-				words.push(word);
-		    $('.story').addClass('new');
+				// words.push(word);
+		    // $('.story').addClass('new');
 				//front end testing only
 
 			  $('input[name=word-input]').val("");
 				var scrollGoal = $('.story').height();
 				$('#everything').animate({scrollTop: scrollGoal}, 250);
+				initCooldown(1000);
 		    updateGrammar();
 				// don't comment
 
-		    setTimeout(function() {
-		      updateStory();
-		      $('#word-input').focus();
-		      setTimeout(function() {
-		        $('.story').removeClass('new');
-		      }, 250);
-		    }, 250);
+		    // setTimeout(function() {
+		    //   updateStory();
+		    //   $('#word-input').focus();
+		    //   setTimeout(function() {
+		    //     $('.story').removeClass('new');
+		    //   }, 250);
+		    // }, 250);
 				//front end testing only
 
-		    // sendWord(word);
+		    sendWord(word);
 		    // back end testing only
 		  }
 			else {
