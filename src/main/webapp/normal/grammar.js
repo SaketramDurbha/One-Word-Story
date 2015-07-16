@@ -15,7 +15,7 @@ var paragraphCreated = false;
 var chapterCreated = false;
 
 var bookTitle = ""; // get from db
-var amtOfCovers = 5;
+var amtOfCovers = 6;
 
 // wordsUntilPeriod = some val that should be saved in db
 // sentencesUntilParagraph = some val that should be saved in db
