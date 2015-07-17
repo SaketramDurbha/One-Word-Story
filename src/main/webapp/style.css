@@ -70,6 +70,7 @@ body {
 
 #header-top-book.shown {
   margin-top: 148px;
+  overflow: hidden;
 }
 
 #header-top-outer {
@@ -95,23 +96,25 @@ body {
 #book {
   height: 250px;
   width: 150px;
-  border-bottom: 7px solid black;
-  border-right: 7px solid black;
+  border-bottom: 7px solid #4C4C4C;
+  border-right: 40px solid #787878;
   background-color: #2E110F;
   background-image: url('covers/cover3.png');
   margin: 0;
+  margin-left: -25px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
-  transform: rotateX(29deg) rotateY(-18deg) rotateZ(2deg);
-  -webkit-transform: rotateX(29deg) rotateY(-18deg) rotateZ(2deg);
-  transition: border-bottom 0.5s, border-right 0.5s, transform 0.5s, -webkit-transform 0.5s;
-  -webkit-transition: border-bottom 0.5s, border-right 0.5s, transform 0.5s, -webkit-transform 0.5s;
+  transform: rotateX(39deg) rotateY(-48deg) rotateZ(33deg);
+  -webkit-transform: rotateX(39deg) rotateY(-48deg) rotateZ(33deg);
+  transition: margin-left 0.5s, border-bottom 0.5s, border-right 0.5s, transform 0.5s, -webkit-transform 0.5s;
+  -webkit-transition: margin-left 0.5s, border-bottom 0.5s, border-right 0.5s, transform 0.5s, -webkit-transform 0.5s;
 }
 
 #book:hover {
+  margin-left: 0;
   transform: rotateX(19deg) rotateY(-8deg) rotateZ(2deg);
   -webkit-transform: rotateX(19deg) rotateY(-8deg) rotateZ(2deg);
-  border-bottom: 2px solid black;
-  border-right: 5px solid black;
+  border-bottom: 2px solid #3D3D3D;
+  border-right: 4px solid #606060;
 }
 
 #book-title {

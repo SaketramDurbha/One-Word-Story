@@ -196,7 +196,7 @@ var updateGrammar = function() {
 }
 
 var updateCounters = function() {
-  $('#sentences-counter').html("&#x25C6; words until next sentence - "+(wordsUntilPeriod - wordsSincePeriod))
+  $('#sentences-counter').html("&#x25C6; words until next sentence - "+(wordsUntilPeriod - wordsSincePeriod + 1))
   if((wordsUntilPeriod - wordsSincePeriod) === 0) {
     // $('#sentences-counter').html("&#x25C6; words until next sentence - 0");
     setTimeout(function() {$('.story').addClass('new-s');}, 250);
