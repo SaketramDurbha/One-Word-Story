@@ -19,8 +19,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
+import me.onewordstory.dbutil.Database;
 import me.onewordstory.entites.*;
-import me.onewordstory.util.Database;
 import me.onewordstory.websockets.WebSocketImpl;
 
 @Path("/words")

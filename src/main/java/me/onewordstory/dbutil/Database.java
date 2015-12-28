@@ -1,4 +1,4 @@
-package me.onewordstory.util;
+package me.onewordstory.dbutil;
 
 import java.sql.*;
 import javax.sql.DataSource;
@@ -14,38 +14,31 @@ public class Database
 		try {
 			InitialContext ic = new InitialContext();
 			dataSource = (DataSource) ic.lookup("java:/comp/env/jdbc/onewordstory");
-		} catch (NamingException e)
-		{
+		} catch (NamingException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public static synchronized Database getInstance()
-	{
-		if (pool == null)
-		{
+	public static synchronized Database getInstance() {
+		if (pool == null) {
 			pool = new Database();
 		}
 		return pool;
 	}
-	public Connection getConnection()
-	{
+	
+	public Connection getConnection() {
 		try {
 			return dataSource.getConnection();
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	public void freeConnection (Connection c)
-	{
+	
+	public void freeConnection (Connection c) {
 		try {
 			c.close();
-		}
-		catch (SQLException e)
-		{
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
